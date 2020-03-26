@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CryptoNotes.App">
+
+    <Application.Resources>
+
+        <ResourceDictionary>
+
+            <Color x:Key="ThemeBackgroundDetailColor">#789E9E</Color>
+            <Color x:Key="NavigationBackgroundColor">#4D6466</Color>
+            <Color x:Key="InputBackgroundColor">#B7D8D6</Color>
+            <Color x:Key="DarkTextColor">#0B1515</Color>
+            <Color x:Key="InputTextColor">#0B1515</Color>
+            <Color x:Key="ThemeTextColor">#4D6466</Color>
+            <Color x:Key="AccentColor">#FE615A</Color>
+            <Color x:Key="DisabledText">#EEF3DB</Color>
+            <Color x:Key="HeaderTextColor">#F0C700</Color>
+            
+            <Style TargetType="BoxView" x:Key="HorizontalSeparatorBoxViewStyle">
+                <Setter Property="HeightRequest" Value="1.5"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource ThemeBackgroundDetailColor}"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="LabelStyle">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="LabelCenterStyle" BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="LogoStyle" TargetType="Image">
+                <Setter Property="WidthRequest" Value="100"/>
+                <Setter Property="HeightRequest" Value="100"/>
+                <Setter Property="Margin" Value="0,30,0,0"/>
+                <Setter Property="Source" Value="C:\Users\atxph\Sync\Projects\Visual Studio Projects\CryptoNotes\CryptoNotes\Assets\notelock1.png"/>
+            </Style>
+
+            <Style x:Key="ListViewStyle" TargetType="ListView">
+                <Setter Property="BackgroundColor" Value="{StaticResource InputBackgroundColor}"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="HorizontalScrollBarVisibility" Value="Default"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalScrollBarVisibility" Value="Always"/>
+            </Style>
+
+            <Style x:Key="ListViewContentStyle" TargetType="Label">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="TextColor" Value="{StaticResource DarkTextColor}"/>
+                <Setter Property="LineBreakMode" Value="TailTruncation"/>
+            </Style>
+            
+            <Style x:Key="ContentPageStyle" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value = "{StaticResource ThemeBackgroundDetailColor}"/>
+            </Style>
+
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Large"/>
+            </Style>
+
+            <Style x:Key="RegularButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonStyle}">
+                <Setter Property="BackgroundColor" Value = "{StaticResource InputBackgroundColor}"/>
+                <Setter Property="TextColor" Value="{StaticResource InputTextColor}"/>
+            </Style>
+            
+            <Style x:Key="DeleteButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonStyle}">
+                <Setter Property="BackgroundColor" Value = "{StaticResource AccentColor}"/>
+                <Setter Property="TextColor" Value="{StaticResource InputTextColor}"/>
+            </Style>
+                    
+            <Style x:Key="EditorStyle" TargetType="Editor">
+                <Setter Property="HeightRequest" Value="200"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource InputBackgroundColor}"/>
+                <Setter Property="TextColor" Value="{StaticResource InputTextColor}"/>
+            </Style>
+            
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="TextColor" Value="{StaticResource InputTextColor}"/>
+                <Setter Property="Margin" Value="10"/>
+            </Style>
+            
+            <Style x:Key="HeaderStyle" TargetType="Label">
+                <Setter Property="Text" Value="Crypto APP"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="TextColor" Value="{StaticResource HeaderTextColor}"/>
+            </Style>
+            
+            <Style x:Key="StackLayoutStyle" TargetType="StackLayout">
+                <Setter Property="Orientation" Value = "Vertical"/>
+                <Setter Property="HorizontalOptions" Value = "FillAndExpand"/>
+                <Setter Property="Margin" Value = "5"/>
+                <Setter Property="VerticalOptions" Value = "CenterAndExpand"/>
+                <Setter Property="BackgroundColor" Value = "{StaticResource ThemeBackgroundDetailColor}"/>
+                <Setter Property="Padding" Value = "5"/>
+            </Style>
+            
+            <ControlTemplate x:Key="HeaderFooterMessageTemplate">
+                <StackLayout>
+                    <!-- Header-->
+                    <StackLayout VerticalOptions="Start"  Margin="5" >
+                        <Label x:Name="AppTitle"  Style="{StaticResource HeaderStyle}"  />
+                        <BoxView Style="{StaticResource HorizontalSeparatorBoxViewStyle}" />
+                    </StackLayout>
+                    <!-- Content  -->
+                    <StackLayout>
+                        <ContentPresenter   />
+                    </StackLayout>
+                </StackLayout>
+            </ControlTemplate>
+            <ControlTemplate x:Key="HeaderFooterControlTemplate">
+                <StackLayout>
+                    <!-- Header-->
+                    <StackLayout VerticalOptions="Start"  Margin="5" >
+                        <Label x:Name="AppTitle"  Style="{StaticResource HeaderStyle}"  />
+                        <BoxView Style="{StaticResource HorizontalSeparatorBoxViewStyle}" />
+                    </StackLayout>
+                    <!-- Content  -->
+                    <StackLayout VerticalOptions="StartAndExpand">
+                        <ContentPresenter   />
+                    </StackLayout>
+                </StackLayout>
+            </ControlTemplate>
+                       
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

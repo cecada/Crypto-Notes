@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Messages"
+             Style="{StaticResource ContentPageStyle}"
+             ControlTemplate="{StaticResource HeaderFooterMessageTemplate}"
+             x:Class="CryptoNotes.Messages">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" Clicked="OnNoteAddedClicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Fill"  VerticalOptions="StartAndExpand" Margin="10">
+            <ListView Style="{StaticResource ListViewStyle}" ItemSelected="OnListViewItemSelected" x:Name="NotesLists">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Label Style="{StaticResource ListViewContentStyle}"
+                                       Text="{Binding NoteTitle}"/>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

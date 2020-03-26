@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="New Note"
+             Style="{StaticResource ContentPageStyle}"
+             ControlTemplate="{StaticResource HeaderFooterMessageTemplate}"
+             x:Class="CryptoNotes.CreateMessage">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Fill" VerticalOptions="StartAndExpand" Margin="10">
+            <Label Style="{StaticResource LabelStyle}" Text="Enter or Paste Text Here:" />
+            <Entry x:Name="NoteTitle" Text="{Binding NoteTitle}" Style="{StaticResource EntryStyle}" Placeholder="Note Title"/>
+            <Editor Style="{StaticResource EditorStyle}" x:Name="TextMessage" Text="{Binding Data}"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Style="{StaticResource LabelCenterStyle}" Text="Message Action: "/>
+                <Switch x:Name="MessageActionSwitch" IsToggled="false" Margin="10"/>
+            </StackLayout>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="RunButton" Text="Save" Style="{StaticResource RegularButtonStyle}" />
+                <Button Grid.Column="1"
+                    Text="Delete"                
+                    Style="{StaticResource DeleteButtonStyle}"
+                    Clicked="OnDeleteButtonClicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

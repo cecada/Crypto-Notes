@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Setup"
+             Style="{StaticResource ContentPageStyle}"
+             ControlTemplate="{StaticResource HeaderFooterControlTemplate}"
+             x:Class="CryptoNotes.SetupPage">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Image x:Name="Logo" IsVisible="True" Style="{StaticResource LogoStyle}"/>
+            <StackLayout IsVisible="True" x:Name="PasswordLayout" Style="{StaticResource StackLayoutStyle}">
+                <Entry x:Name="Password" IsPassword="True" Style="{StaticResource EntryStyle}" Placeholder="Password"/>
+                <Label Style="{StaticResource LabelCenterStyle}" Text="The PIN is a number between 1,000 and 10,000 which will be used with your password."/>
+                <Entry x:Name="PIN" IsPassword="True" Style="{StaticResource EntryStyle}" Placeholder="PIN" Keyboard="Numeric"/>
+                <Label Style="{StaticResource LabelCenterStyle}" Text="Make sure to remember your Password and PIN. There is no way to recover data should you forget either one."/>
+                <Button x:Name="UnlockButton" Style="{StaticResource RegularButtonStyle}" Text="Create Account" />
+            </StackLayout>
+            <StackLayout x:Name="LoadingLayout" IsVisible="False" Margin="0,50,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <ActivityIndicator
+                            x:Name="Spinner"
+                           IsRunning="False"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Margin="10"
+                           Color="{StaticResource AccentColor}" />
+                    <Label x:Name="StatusLabel" Grid.Column="1" FontSize="Large" Style="{StaticResource LabelCenterStyle}">
+                        <Label.Text>Creating encyption keys.. This could take awhile...</Label.Text>
+                    </Label>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
